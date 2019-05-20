@@ -1,3 +1,9 @@
+module.exports=require('./auth');
+//#002
+//module.exports = {  
+//    ...require('./auth') //... spread operater so as to spread out every individual handler inside of auth
+//};
+//go to handlers/auth.js #003
 
 //next is ver imp to errors
 module.exports.notFound=(res,req,next)=>{
