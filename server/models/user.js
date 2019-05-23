@@ -11,6 +11,7 @@ const bcrypt=require('bcryptjs');
     password:{
         type:String,
         required:true,
+        unique: true,
     },
     created:{
         type:Date,
@@ -36,7 +37,7 @@ try{
     //if the password is no modified //if we are sending in correct password we r gonna check its correct or not
     //and in the case if nothing is changed in the database of psswd we just sen dit to he next function
 if(!this.isModified('password')){
-    return (next);
+    return next();
 }
 //otherwise we gonna hash the password and the 10 used below is just the strength of the hashing
 const hashed = await bcrypt.hash(this.password,10);
@@ -58,7 +59,7 @@ userSchema.methods.comparePassword = async function (attempt,next){
     }catch(err){
         next(err);
     }
-}
+};
 module.exports=mongoose.model('User',userSchema)//allow us mongoose to keep track of the user
 
 
