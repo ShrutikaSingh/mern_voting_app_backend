@@ -4,7 +4,7 @@ const mongoose=require('mongoose');
 
 mongoose.set('debug',true);
 mongoose.Promise=global.Promise;
-const mongo_url='mongodb://localhost:27017/vote'
+const mongo_url='mongodb://localhost:27017/vote';
 mongoose.connect(mongo_url);
 
 

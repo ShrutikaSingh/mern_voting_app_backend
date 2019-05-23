@@ -8,8 +8,7 @@ const handle=require('../handlers'); //.. takes us to upone level i.e to server 
 
 
 //the two routes that we are gonna have is register and login
-router.post('./register');
-router.post('./login');
+router.post('/register',handle.register);
+router.post('/login',handle.login);
 
 module.exports=router;
-
