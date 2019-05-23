@@ -3,12 +3,12 @@ require('dotenv').config()//create private variables that u dont want to share o
 //create server
 
 const express = require('express');
-const port= 3000;   //const port= process.env.PORT; //it will take the PORT variable from .env
+const port= 5000;   //const port= process.env.PORT; //it will take the PORT variable from .env
 
-const cors=require('cors');  
+const cors=require('cors');
 const bodyParser=require('body-parser');
 
-const db=require('./models/mongo_index.js');    //for mongo db connection
+const db=require('./models');    //for mongo db connection
 const handle=require('./handlers');  //start listing at /
 
 const routes=require('./routes');
@@ -25,6 +25,6 @@ app.use('./api/auth',routes.auth);//sending all the route for this endpoint here
 
 
 app.use(handle.notFound);   //not found is coming from handler/index.js
-app.use( handle.errors);    //this errorHandler errors is coming from handler/index.js//const port= process.env.PORT; //it will take the PORT variable from .env
+//app.use( handle.errors);    //this errorHandler errors is coming from handler/index.js//const port= process.env.PORT; //it will take the PORT variable from .env
 
 app.listen(port, console.log(`server is listining to ${port}`)); //``backtick for template literals
