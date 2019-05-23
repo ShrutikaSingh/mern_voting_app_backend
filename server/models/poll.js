@@ -10,10 +10,10 @@ const optionSchema = new mongoose.Schema({
 });
 
 const pollSchema = new mongoose.Schema({
-    user: [{
+    user: {
         type:mongoose.Schema.Types.ObjectId,
         ref:'User'
-    }],
+    },
     questions:String,
     options:[optionSchema], //to refer optionSchema above
     voted:[{type: mongoose.Schema.Types.ObjectId,ref:'User'}],
